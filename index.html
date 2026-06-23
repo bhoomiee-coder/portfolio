@@ -1,0 +1,3685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<Style>
+  /* ===============================
+   GOOGLE FONT
+================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ===============================
+   RESET
+================================ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    overflow-x:hidden;
+}
+
+body{
+    background:#050816;
+    color:white; 
+    position:relative;
+
+    
+}
+
+
+  
+/* ===============================
+   ANIMATED BACKGROUND
+================================ */
+
+body::before{
+    content:'';
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:#8B5CF6;
+    filter:blur(250px);
+    opacity:.18;
+    top:-250px;
+    left:-250px;
+    z-index:-2;
+}
+
+body::after{
+    content:'';
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#A855F7;
+    filter:blur(220px);
+    opacity:.12;
+    right:-200px;
+    bottom:-200px;
+    z-index:-2;
+}
+
+/* ===============================
+   CUSTOM SCROLLBAR
+================================ */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#070b1f;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#8B5CF6;
+    border-radius:20px;
+}
+
+/* ===============================
+   NAVBAR
+================================ */
+
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:999;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(20px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo span{
+    font-size:1.5rem;
+    font-weight:700;
+    color:#fff;
+
+    letter-spacing:2px;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    transition:.3s ease;
+    position:relative;
+}
+
+.nav-links a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    background:#8B5CF6;
+    left:0;
+    bottom:-5px;
+    transition:.4s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.nav-links a:hover{
+    color:#A855F7;
+}
+
+/* ===============================
+   HERO SECTION
+================================ */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:140px 8%;
+    gap:60px;
+}
+
+.hero-content{
+    flex:1;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    background:rgba(139,92,246,.15);
+
+    border:1px solid rgba(139,92,246,.4);
+
+    color:#c9b6ff;
+
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:5rem;
+    font-weight:800;
+    line-height:1.1;
+
+    margin-bottom:20px;
+
+    background:linear-gradient(
+    to right,
+    #ffffff,
+    #c084fc
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero h2{
+    font-size:2rem;
+    color:#c084fc;
+
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:650px;
+
+    color:#b8b8c8;
+
+    font-size:1.05rem;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn-primary{
+
+    text-decoration:none;
+
+    padding:15px 30px;
+
+    border-radius:50px;
+
+    color:white;
+
+    background:linear-gradient(
+    135deg,
+    #8B5CF6,
+    #A855F7
+    );
+
+    transition:.4s;
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 0 30px rgba(139,92,246,.6);
+
+}
+
+.btn-secondary{
+
+    text-decoration:none;
+
+    padding:15px 30px;
+
+    border-radius:50px;
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(15px);
+
+    transition:.4s;
+}
+
+.btn-secondary:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#8B5CF6;
+
+    box-shadow:
+    0 0 25px rgba(139,92,246,.5);
+
+}
+
+/* ===============================
+   HERO GLASS CARD
+================================ */
+
+.hero-card{
+    flex:1;
+
+    display:flex;
+    justify-content:center;
+}
+
+.glass-card{
+
+    width:100%;
+    max-width:420px;
+
+    padding:35px;
+
+    border-radius:30px;
+
+    background:
+    rgba(255,255,255,.05);
+
+    backdrop-filter:blur(25px);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    transition:.5s;
+}
+
+.glass-card:hover{
+
+    transform:
+    translateY(-10px);
+
+    box-shadow:
+    0 0 40px rgba(139,92,246,.35);
+}
+
+.glass-card span{
+    color:#c084fc;
+}
+
+.glass-card h3{
+    margin:15px 0;
+    font-size:2rem;
+}
+
+.glass-card p{
+    color:#b8b8c8;
+}
+
+.glass-card ul{
+    margin-top:20px;
+    padding-left:20px;
+}
+
+.glass-card li{
+    margin-bottom:10px;
+    color:#d6d6e5;
+}
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media(max-width:900px){
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:3rem;
+}
+
+.hero h2{
+    font-size:1.5rem;
+}
+
+.hero-buttons{
+    justify-content:center;
+}
+
+.nav-links{
+    display:none;
+}
+
+}
+/* ===============================
+   GOOGLE FONT
+================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ===============================
+   RESET
+================================ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    overflow-x:hidden;
+}
+
+body{
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+    position:relative;
+    overflow-x:hidden;
+}
+
+
+/* ===============================
+   ANIMATED BACKGROUND
+================================ */
+
+body::before{
+    content:'';
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:#8B5CF6;
+    filter:blur(250px);
+    opacity:.18;
+    top:-250px;
+    left:-250px;
+    z-index:-2;
+}
+
+body::after{
+    content:'';
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#A855F7;
+    filter:blur(220px);
+    opacity:.12;
+    right:-200px;
+    bottom:-200px;
+    z-index:-2;
+}
+
+/* ===============================
+   CUSTOM SCROLLBAR
+================================ */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#070b1f;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#8B5CF6;
+    border-radius:20px;
+}
+
+/* ===============================
+   NAVBAR
+================================ */
+
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:999;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(20px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo span{
+    font-size:1.5rem;
+    font-weight:700;
+    color:#fff;
+
+    letter-spacing:2px;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    transition:.3s ease;
+    position:relative;
+}
+
+.nav-links a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    background:#8B5CF6;
+    left:0;
+    bottom:-5px;
+    transition:.4s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.nav-links a:hover{
+    color:#A855F7;
+}
+
+/* ===============================
+   HERO SECTION
+================================ */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:140px 8%;
+    gap:60px;
+}
+
+.hero-content{
+    flex:1;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    background:rgba(139,92,246,.15);
+
+    border:1px solid rgba(139,92,246,.4);
+
+    color:#c9b6ff;
+
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:5rem;
+    font-weight:800;
+    line-height:1.1;
+
+    margin-bottom:20px;
+
+    background:linear-gradient(
+    to right,
+    #ffffff,
+    #c084fc
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero h2{
+    font-size:2rem;
+    color:#c084fc;
+
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:650px;
+
+    color:#b8b8c8;
+
+    font-size:1.05rem;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn-primary{
+
+    text-decoration:none;
+
+    padding:15px 30px;
+
+    border-radius:50px;
+
+    color:white;
+
+    background:linear-gradient(
+    135deg,
+    #8B5CF6,
+    #A855F7
+    );
+
+    transition:.4s;
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 0 30px rgba(139,92,246,.6);
+
+}
+
+.btn-secondary{
+
+    text-decoration:none;
+
+    padding:15px 30px;
+
+    border-radius:50px;
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(15px);
+
+    transition:.4s;
+}
+
+.btn-secondary:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#8B5CF6;
+
+    box-shadow:
+    0 0 25px rgba(139,92,246,.5);
+
+}
+
+/* ===============================
+   HERO GLASS CARD
+================================ */
+
+.hero-card{
+    flex:1;
+
+    display:flex;
+    justify-content:center;
+}
+
+.glass-card{
+
+    width:100%;
+    max-width:420px;
+
+    padding:35px;
+
+    border-radius:30px;
+
+    background:
+    rgba(255,255,255,.05);
+
+    backdrop-filter:blur(25px);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    transition:.5s;
+}
+
+.glass-card:hover{
+
+    transform:
+    translateY(-10px);
+
+    box-shadow:
+    0 0 40px rgba(139,92,246,.35);
+}
+
+.glass-card span{
+    color:#c084fc;
+}
+
+.glass-card h3{
+    margin:15px 0;
+    font-size:2rem;
+}
+
+.glass-card p{
+    color:#b8b8c8;
+}
+
+.glass-card ul{
+    margin-top:20px;
+    padding-left:20px;
+}
+
+.glass-card li{
+    margin-bottom:10px;
+    color:#d6d6e5;
+}
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media(max-width:900px){
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:3rem;
+}
+
+.hero h2{
+    font-size:1.5rem;
+}
+
+.hero-buttons{
+    justify-content:center;
+}
+
+.nav-links{
+    display:none;
+}
+
+}
+/* =================================
+   SECTION TITLE
+================================= */
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title span{
+
+    color:#8B5CF6;
+
+    letter-spacing:3px;
+
+    font-size:.9rem;
+
+    font-weight:600;
+}
+
+.section-title h2{
+
+    font-size:3rem;
+
+    margin-top:10px;
+
+    font-weight:700;
+}
+
+/* =================================
+   ABOUT SECTION
+================================= */
+
+.about{
+
+    padding:120px 8%;
+}
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:25px;
+}
+
+/* =================================
+   ABOUT CARD
+================================= */
+
+.about-card{
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:
+    blur(20px);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    transition:.4s;
+}
+
+.about-card:hover{
+
+    transform:
+    translateY(-10px);
+
+    border-color:#8B5CF6;
+
+    box-shadow:
+    0 0 35px rgba(139,92,246,.35);
+}
+
+/* Large Card */
+
+.large-card{
+
+    grid-column:span 2;
+    grid-row:span 2;
+}
+
+.large-card h3{
+
+    font-size:2rem;
+
+    margin-bottom:20px;
+
+    color:#fff;
+}
+
+.large-card p{
+
+    color:#bdbdd0;
+
+    line-height:1.9;
+
+    margin-bottom:15px;
+}
+
+/* =================================
+   SMALL CARDS
+================================= */
+
+.card-label{
+
+    color:#8B5CF6;
+
+    font-size:.85rem;
+
+    letter-spacing:2px;
+
+    display:block;
+
+    margin-bottom:15px;
+}
+
+.about-card h3{
+
+    font-size:2.4rem;
+
+    margin-bottom:10px;
+}
+
+.about-card p{
+
+    color:#bdbdd0;
+}
+
+/* =================================
+   QUICK INFO
+================================= */
+
+.quick-info{
+
+    padding:0 8% 120px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:25px;
+}
+
+.info-card{
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:
+    blur(20px);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    transition:.4s;
+}
+
+.info-card:hover{
+
+    transform:
+    translateY(-10px);
+
+    border-color:#8B5CF6;
+
+    box-shadow:
+    0 0 35px rgba(139,92,246,.35);
+}
+
+.info-card h4{
+
+    color:#8B5CF6;
+
+    margin-bottom:15px;
+
+    font-size:1rem;
+}
+
+.info-card p{
+
+    color:#d9d9e8;
+
+    line-height:1.7;
+}
+
+/* =================================
+   GLOW EFFECT
+================================= */
+
+.about-card::before,
+.info-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:inherit;
+
+    background:
+    linear-gradient(
+    135deg,
+    rgba(139,92,246,.15),
+    transparent
+    );
+
+    opacity:0;
+
+    transition:.4s;
+}
+
+.about-card:hover::before,
+.info-card:hover::before{
+
+    opacity:1;
+}
+
+.about-card,
+.info-card{
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media(max-width:992px){
+
+.about-grid{
+
+    grid-template-columns:1fr;
+}
+
+.large-card{
+
+    grid-column:auto;
+    grid-row:auto;
+}
+
+.quick-info{
+
+    grid-template-columns:1fr;
+}
+
+.section-title h2{
+
+    font-size:2.2rem;
+}
+
+}
+/* =================================
+   SKILLS SECTION
+================================= */
+
+.skills-section{
+    padding:120px 8%;
+}
+
+.skill-category{
+    margin-bottom:60px;
+}
+
+.skill-category h3{
+
+    font-size:1.8rem;
+
+    color:#c084fc;
+
+    margin-bottom:25px;
+
+    padding-left:10px;
+
+    border-left:4px solid #8B5CF6;
+}
+
+/* =================================
+   SKILLS GRID
+================================= */
+
+.skills-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
+
+    gap:25px;
+}
+
+/* =================================
+   SKILL BOX
+================================= */
+
+.skill-box{
+
+    position:relative;
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:
+    blur(20px);
+
+    border-radius:25px;
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    transition:.4s;
+
+    overflow:hidden;
+}
+
+.skill-box:hover{
+
+    transform:
+    translateY(-10px);
+
+    border-color:#8B5CF6;
+
+    box-shadow:
+    0 0 35px rgba(139,92,246,.4);
+}
+
+/* =================================
+   ICONS
+================================= */
+
+.skill-box i{
+
+    font-size:3rem;
+
+    color:#8B5CF6;
+
+    margin-bottom:20px;
+
+    transition:.4s;
+}
+
+.skill-box:hover i{
+
+    transform:
+    scale(1.2)
+    rotate(8deg);
+
+    color:#c084fc;
+
+    text-shadow:
+    0 0 20px #8B5CF6;
+}
+
+/* =================================
+   SKILL NAME
+================================= */
+
+.skill-box span{
+
+    display:block;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    color:white;
+
+    letter-spacing:1px;
+}
+
+/* =================================
+   GLOW ANIMATION
+================================= */
+
+.skill-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:200px;
+    height:200px;
+
+    background:
+    radial-gradient(
+    rgba(139,92,246,.35),
+    transparent
+    );
+
+    top:-100px;
+    left:-100px;
+
+    transition:.5s;
+}
+
+.skill-box:hover::before{
+
+    top:-50px;
+    left:-50px;
+}
+
+/* =================================
+   FLOATING EFFECT
+================================= */
+
+.skill-box:nth-child(1){
+    animation:floatSkill 4s ease-in-out infinite;
+}
+
+.skill-box:nth-child(2){
+    animation:floatSkill 5s ease-in-out infinite;
+}
+
+.skill-box:nth-child(3){
+    animation:floatSkill 6s ease-in-out infinite;
+}
+
+.skill-box:nth-child(4){
+    animation:floatSkill 4.5s ease-in-out infinite;
+}
+
+@keyframes floatSkill{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}
+
+/* =================================
+   CATEGORY SEPARATOR
+================================= */
+
+.skill-category{
+
+    background:
+    rgba(255,255,255,.02);
+
+    padding:30px;
+
+    border-radius:25px;
+
+    border:
+    1px solid rgba(255,255,255,.05);
+
+    margin-bottom:40px;
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media(max-width:768px){
+
+.skills-grid{
+
+    grid-template-columns:
+    repeat(2,1fr);
+}
+
+.skill-box{
+
+    padding:25px 15px;
+}
+
+.skill-box i{
+
+    font-size:2.3rem;
+}
+
+.skill-category h3{
+
+    font-size:1.4rem;
+}
+
+}
+/* =================================
+   PROJECTS SECTION
+================================= */
+
+.projects-section{
+    padding:120px 8%;
+}
+
+.projects-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(350px,1fr));
+
+    gap:30px;
+}
+
+/* =================================
+   PROJECT CARD
+================================= */
+
+.project-card{
+
+    position:relative;
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:
+    blur(20px);
+
+    border-radius:30px;
+
+    padding:30px;
+
+    transition:.5s;
+
+    overflow:hidden;
+}
+
+.project-card:hover{
+
+    transform:
+    translateY(-12px);
+
+    border-color:#8B5CF6;
+
+    box-shadow:
+    0 0 40px rgba(139,92,246,.35);
+}
+
+/* =================================
+   FEATURED PROJECT
+================================= */
+
+.featured{
+
+    border:
+    1px solid rgba(139,92,246,.4);
+
+    background:
+    linear-gradient(
+    135deg,
+    rgba(139,92,246,.12),
+    rgba(255,255,255,.04)
+    );
+}
+
+.featured:hover{
+
+    box-shadow:
+    0 0 60px rgba(139,92,246,.55);
+}
+
+/* =================================
+   PROJECT TAG
+================================= */
+
+.project-tag{
+
+    display:inline-block;
+
+    padding:8px 15px;
+
+    border-radius:50px;
+
+    background:
+    rgba(139,92,246,.15);
+
+    border:
+    1px solid rgba(139,92,246,.4);
+
+    color:#c084fc;
+
+    font-size:.8rem;
+
+    margin-bottom:20px;
+}
+
+/* =================================
+   PROJECT TITLE
+================================= */
+
+.project-card h3{
+
+    font-size:1.5rem;
+
+    color:white;
+
+    margin-bottom:15px;
+
+    line-height:1.4;
+}
+
+/* =================================
+   PROJECT DESCRIPTION
+================================= */
+
+.project-card p{
+
+    color:#bdbdd0;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+}
+
+/* =================================
+   TECH STACK
+================================= */
+
+.tech-stack{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:25px;
+}
+
+.tech-stack span{
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    background:
+    rgba(255,255,255,.06);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    color:#d8d8e8;
+
+    font-size:.85rem;
+}
+
+/* =================================
+   PROJECT BUTTONS
+================================= */
+
+.project-buttons{
+
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+}
+
+.project-btn{
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:50px;
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    transition:.4s;
+}
+
+.project-btn:hover{
+
+    background:
+    linear-gradient(
+    135deg,
+    #8B5CF6,
+    #A855F7
+    );
+
+    border-color:transparent;
+
+    transform:
+    translateY(-3px);
+
+    box-shadow:
+    0 0 25px rgba(139,92,246,.45);
+}
+
+/* =================================
+   CARD GLOW EFFECT
+================================= */
+
+.project-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+    height:250px;
+
+    background:
+    radial-gradient(
+    rgba(139,92,246,.25),
+    transparent
+    );
+
+    top:-120px;
+    right:-120px;
+
+    transition:.5s;
+}
+
+.project-card:hover::before{
+
+    transform:
+    scale(1.3);
+}
+
+/* =================================
+   FEATURED BORDER ANIMATION
+================================= */
+
+.featured::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:30px;
+
+    padding:1px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #8B5CF6,
+    transparent,
+    #A855F7
+    );
+
+    -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media(max-width:768px){
+
+.projects-grid{
+
+    grid-template-columns:1fr;
+}
+
+.project-card{
+
+    padding:25px;
+}
+
+.project-card h3{
+
+    font-size:1.25rem;
+}
+
+.project-buttons{
+
+    flex-direction:column;
+}
+
+.project-btn{
+
+    text-align:center;
+}
+
+}
+/* =================================
+   CERTIFICATIONS SECTION
+================================= */
+
+.certifications-section{
+    padding:120px 8%;
+}
+
+.cert-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+}
+
+.cert-card{
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:
+    blur(20px);
+
+    border-radius:25px;
+
+    padding:35px 25px;
+
+    text-align:center;
+
+    transition:.4s;
+}
+
+.cert-card:hover{
+
+    transform:
+    translateY(-10px);
+
+    border-color:#8B5CF6;
+
+    box-shadow:
+    0 0 35px rgba(139,92,246,.4);
+}
+
+.cert-card i{
+
+    font-size:3rem;
+
+    color:#8B5CF6;
+
+    margin-bottom:20px;
+}
+
+.cert-card h3{
+
+    margin-bottom:10px;
+
+    color:white;
+}
+
+.cert-card p{
+
+    color:#bdbdd0;
+}
+
+/* =================================
+   EDUCATION & EXPERIENCE
+================================= */
+
+.education-section,
+.experience-section{
+
+    padding:120px 8%;
+}
+
+/* =================================
+   TIMELINE
+================================= */
+
+.timeline{
+
+    position:relative;
+
+    max-width:1000px;
+
+    margin:auto;
+}
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    width:4px;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+    #8B5CF6,
+    #A855F7
+    );
+
+    transform:
+    translateX(-50%);
+}
+
+/* =================================
+   TIMELINE ITEM
+================================= */
+
+.timeline-item{
+
+    position:relative;
+
+    width:50%;
+
+    padding:20px 40px;
+
+    margin-bottom:50px;
+}
+
+.timeline-item:nth-child(odd){
+
+    left:0;
+}
+
+.timeline-item:nth-child(even){
+
+    left:50%;
+}
+
+.timeline-item::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:20px;
+    height:20px;
+
+    border-radius:50%;
+
+    background:#8B5CF6;
+
+    top:35px;
+}
+
+.timeline-item:nth-child(odd)::before{
+
+    right:-10px;
+}
+
+.timeline-item:nth-child(even)::before{
+
+    left:-10px;
+}
+
+/* =================================
+   TIMELINE CONTENT
+================================= */
+
+.timeline-content{
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:
+    blur(20px);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    transition:.4s;
+}
+
+.timeline-content:hover{
+
+    transform:
+    translateY(-8px);
+
+    border-color:#8B5CF6;
+
+    box-shadow:
+    0 0 35px rgba(139,92,246,.35);
+}
+
+.timeline-content h3{
+
+    color:white;
+
+    margin-bottom:8px;
+}
+
+.timeline-content h4{
+
+    color:#c084fc;
+
+    margin-bottom:10px;
+}
+
+.timeline-content p{
+
+    color:#bdbdd0;
+
+    line-height:1.8;
+}
+
+.timeline-content ul{
+
+    margin-top:15px;
+
+    padding-left:18px;
+}
+
+.timeline-content li{
+
+    margin-bottom:8px;
+
+    color:#d8d8e8;
+}
+
+/* =================================
+   CURRENT JOB BADGE
+================================= */
+
+.job-badge{
+
+    display:inline-block;
+
+    padding:8px 15px;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #8B5CF6,
+    #A855F7
+    );
+
+    color:white;
+
+    font-size:.8rem;
+
+    margin-bottom:15px;
+}
+
+.current-job .timeline-content{
+
+    border:
+    1px solid rgba(139,92,246,.45);
+
+    box-shadow:
+    0 0 30px rgba(139,92,246,.25);
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media(max-width:900px){
+
+.timeline::before{
+
+    left:20px;
+}
+
+.timeline-item{
+
+    width:100%;
+
+    left:0 !important;
+
+    padding-left:60px;
+
+    padding-right:0;
+}
+
+.timeline-item::before{
+
+    left:10px !important;
+}
+
+}
+/* =================================
+   ACHIEVEMENTS SECTION
+================================= */
+
+.achievements-section{
+    padding:120px 8%;
+}
+
+.achievement-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+}
+
+.achievement-card{
+
+    background:
+    rgba(255,255,255,.05);
+
+    backdrop-filter:blur(20px);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    text-align:center;
+
+    transition:.4s;
+}
+
+.achievement-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#8B5CF6;
+
+    box-shadow:
+    0 0 35px rgba(139,92,246,.4);
+}
+
+.achievement-card i{
+
+    font-size:3rem;
+
+    color:#8B5CF6;
+
+    margin-bottom:20px;
+}
+
+.achievement-card h3{
+
+    margin-bottom:12px;
+}
+
+.achievement-card p{
+
+    color:#bdbdd0;
+}
+
+/* =================================
+   PROFILE BUTTONS
+================================= */
+
+.profiles-section{
+    padding:120px 8%;
+}
+
+.profile-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+}
+
+.profile-btn{
+
+    padding:18px 35px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    transition:.4s;
+}
+
+.profile-btn i{
+
+    margin-right:10px;
+}
+
+.profile-btn:hover{
+
+    background:
+    linear-gradient(
+    135deg,
+    #8B5CF6,
+    #A855F7
+    );
+
+    transform:
+    translateY(-5px);
+
+    box-shadow:
+    0 0 25px rgba(139,92,246,.45);
+}
+
+/* =================================
+   RESUME CTA
+================================= */
+
+.resume-section{
+
+    padding:120px 8%;
+}
+
+.resume-box{
+
+    text-align:center;
+
+    padding:60px;
+
+    border-radius:35px;
+
+    background:
+    linear-gradient(
+    135deg,
+    rgba(139,92,246,.15),
+    rgba(168,85,247,.08)
+    );
+
+    border:
+    1px solid rgba(139,92,246,.25);
+}
+
+.resume-box h2{
+
+    font-size:2.8rem;
+
+    margin-bottom:15px;
+}
+
+.resume-box p{
+
+    color:#cfcfe0;
+
+    margin-bottom:30px;
+}
+
+.resume-btn{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:16px 35px;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #8B5CF6,
+    #A855F7
+    );
+
+    transition:.4s;
+}
+
+.resume-btn:hover{
+
+    transform:
+    translateY(-5px);
+
+    box-shadow:
+    0 0 30px rgba(139,92,246,.5);
+}
+
+/* =================================
+   CONTACT SECTION
+================================= */
+
+.contact-section{
+
+    padding:120px 8%;
+}
+
+
+
+.contact-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    align-items:stretch;
+}
+
+.contact-card{
+    height:100%;
+    min-height:220px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+
+
+.contact-card:hover{
+
+    transform:
+    translateY(-10px);
+
+    border-color:#8B5CF6;
+
+    box-shadow:
+    0 0 35px rgba(139,92,246,.4);
+}
+
+.contact-card i{
+
+    font-size:2.8rem;
+
+    color:#8B5CF6;
+
+    margin-bottom:20px;
+}
+
+.contact-card h3{
+
+    margin-bottom:10px;
+}
+
+.contact-card p{
+
+    color:#cfcfe0;
+}
+
+/* =================================
+   FOOTER
+================================= */
+
+.footer{
+
+    padding:70px 8%;
+
+    text-align:center;
+
+    border-top:
+    1px solid rgba(255,255,255,.08);
+
+    background:
+    rgba(255,255,255,.02);
+}
+
+.footer h2{
+
+    margin-bottom:15px;
+}
+
+.footer p{
+
+    color:#bdbdd0;
+}
+
+.footer-socials{
+
+    margin:25px 0;
+}
+
+.footer-socials a{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:50px;
+    height:50px;
+
+    border-radius:50%;
+
+    margin:0 10px;
+
+    color:white;
+
+    text-decoration:none;
+
+    background:
+    rgba(255,255,255,.05);
+
+    transition:.4s;
+}
+.footer-socials a{
+
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+
+    margin:0 10px;
+
+    text-decoration:none;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    color:#ffffff;   /* White icon */
+
+    font-size:22px;
+
+    transition:.4s;
+}
+
+.footer-socials a:hover{
+
+    background:linear-gradient(
+    135deg,
+    #8B5CF6,
+    #A855F7
+    );
+
+    color:#ffffff;
+
+    transform:translateY(-5px);
+
+    box-shadow:0 0 25px rgba(139,92,246,.6);
+}
+.footer-socials a:hover{
+
+    background:
+    linear-gradient(
+    135deg,
+    #8B5CF6,
+    #A855F7
+    );
+
+    transform:
+    translateY(-5px);
+}
+
+.copyright{
+
+    margin-top:20px;
+}
+
+/* =================================
+   SCROLL TO TOP BUTTON
+================================= */
+
+#topBtn{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    width:55px;
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:
+    linear-gradient(
+    135deg,
+    #8B5CF6,
+    #A855F7
+    );
+
+    box-shadow:
+    0 0 25px rgba(139,92,246,.5);
+
+    z-index:999;
+
+    transition:.4s;
+}
+
+#topBtn:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.1);
+}
+
+/* =================================
+   GLOBAL HOVER GLOW
+================================= */
+
+.project-card,
+.cert-card,
+.achievement-card,
+.contact-card,
+.info-card,
+.about-card{
+
+    will-change:transform;
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media(max-width:768px){
+
+.resume-box{
+
+    padding:35px 20px;
+}
+
+.resume-box h2{
+
+    font-size:2rem;
+}
+
+.profile-buttons{
+
+    flex-direction:column;
+}
+
+.profile-btn{
+
+    text-align:center;
+}
+
+#topBtn{
+
+    width:50px;
+    height:50px;
+}
+}
+/* =====================================
+   GLASS WIREFRAME TECH SHAPES
+===================================== */
+
+.tech-shapes-bg{
+
+    position:fixed;
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:-1;
+}
+
+/* Common Shape */
+
+ 
+.tech-shape{
+
+    position:absolute;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    animation:
+    floatUpDown 8s ease-in-out infinite,
+    rotateShape 25s linear infinite;
+}
+@keyframes floatUpDown{
+
+    0%{
+        transform:
+        translateY(0px);
+    }
+
+    25%{
+        transform:
+        translateY(-40px)
+        translateX(20px);
+    }
+
+    50%{
+        transform:
+        translateY(20px)
+        translateX(-20px);
+    }
+
+    75%{
+        transform:
+        translateY(-25px)
+        translateX(30px);
+    }
+
+    100%{
+        transform:
+        translateY(0px);
+    }
+
+}
+@keyframes rotateShape{
+
+    from{
+        rotate:0deg;
+    }
+
+    to{
+        rotate:360deg;
+    }
+
+}
+.shape1{
+    animation-duration:10s,35s;
+}
+
+.shape2{
+    animation-duration:14s,25s;
+}
+
+.shape3{
+    animation-duration:18s,40s;
+}
+
+.shape4{
+    animation-duration:12s,30s;
+}
+
+.shape5{
+    animation-duration:16s,50s;
+}
+.tech-shape{
+    filter:
+    drop-shadow(0 0 20px rgba(255,255,255,.08));
+
+    backdrop-filter:blur(10px);
+}
+
+
+/* Hollow Circle */
+
+.shape1{
+
+    width:180px;
+    height:180px;
+
+    border:2px solid rgba(0,229,255,.18);
+
+    border-radius:50%;
+
+    top:10%;
+    left:5%;
+}
+
+/* Diamond */
+
+.shape2{
+
+    width:140px;
+    height:140px;
+
+    border:2px solid rgba(255,255,255,.12);
+
+    transform:rotate(45deg);
+
+    top:25%;
+    right:10%;
+}
+
+.shape2 span{
+    transform:rotate(-45deg);
+}
+
+/* Hexagon */
+
+.shape3{
+
+    width:170px;
+    height:100px;
+
+    border:2px solid rgba(139,92,246,.15);
+
+    top:65%;
+    left:8%;
+}
+
+.shape3::before,
+.shape3::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    border-left:2px solid rgba(139,92,246,.15);
+    border-top:2px solid rgba(139,92,246,.15);
+
+    transform:rotate(45deg);
+}
+
+.shape3::before{
+    top:-60px;
+}
+
+.shape3::after{
+    top:40px;
+}
+
+/* Ring */
+
+.shape4{
+
+    width:220px;
+    height:220px;
+
+    border:3px dashed rgba(255,215,0,.15);
+
+    border-radius:50%;
+
+    bottom:5%;
+    right:8%;
+}
+
+/* Square */
+
+.shape5{
+
+    width:130px;
+    height:130px;
+
+    border:2px solid rgba(0,255,180,.15);
+
+    top:45%;
+    right:35%;
+}
+
+/* Animation */
+
+@keyframes floatShape{
+
+    0%,100%{
+
+        transform:
+        translateY(0px);
+    }
+
+    50%{
+
+        transform:
+        translateY(-30px);
+    }
+}
+.tech-shape span{
+    letter-spacing:2px;
+    text-transform:uppercase;
+    opacity:.4;
+}
+</Style>
+
+<body>
+<div class="tech-shapes-bg">
+
+    <div class="tech-shape shape1">
+        <span>PHP</span>
+    </div>
+
+    <div class="tech-shape shape2">
+    <span>JavaScript</span>
+</div>
+
+<div class="tech-shape shape3">
+    <span>MySQL</span>
+</div>
+  
+    <div class="tech-shape shape4">
+        <span>Excel</span>
+    </div>
+
+    <div class="tech-shape shape5">
+        <span>Git</span>
+    </div>
+
+</div>
+  <!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    
+
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
+
+<!-- ================= HERO ================= -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+        MCA Graduate | Executive @ Yulong Gattuwala Energy Solutions Pvt. Ltd.
+        </span>
+
+        <h1>
+            Bhoomika Khatri
+        </h1>
+
+        <h2>
+            Web Developer & Executive
+        </h2>
+
+        <p>
+            MCA graduate with experience in Web Development,
+            ERP Operations, Excel Reporting, Documentation,
+            Customer Support and Business Processes.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="resume/BHOOMIKA ASHISH KHATRI_Resume.pdf"
+               class="btn-primary">
+                Download Resume
+            </a>
+
+            <a href="https://www.linkedin.com/in/bhoomika-khatri-62180932a/"
+               target="_blank"
+               class="btn-secondary">
+                LinkedIn
+            </a>
+
+            <a href="https://github.com/bhoomiee-coder"
+               target="_blank"
+               class="btn-secondary">
+                GitHub
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-card">
+
+        <div class="glass-card">
+
+            <span>Current Position</span>
+
+            <h3>
+                Executive
+            </h3>
+
+            <p>
+                Yulong Gattuwala Energy Solutions Pvt. Ltd.
+            </p>
+
+            <ul>
+                <li>ERP Data Entry</li>
+                <li>Excel Reporting</li>
+                <li>Purchase & Sales Entries</li>
+                <li>Documentation</li>
+                <li>Customer Support</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about" class="about">
+
+    <div class="section-title">
+        <span>ABOUT ME</span>
+        <h2>Who Am I?</h2>
+    </div>
+
+    <div class="about-grid">
+
+        <!-- Main About Card -->
+
+        <div class="about-card large-card">
+
+            <h3>MCA Graduate & Tech Enthusiast</h3>
+
+            <p>
+                I am a passionate MCA graduate with knowledge of
+                Web Development, JavaScript, PHP
+                and MySQL.
+
+                Currently working as an Executive at
+                Yulong Gattuwala Energy Solutions Pvt. Ltd.,
+                handling ERP operations, reporting,
+                documentation and customer support.
+            </p>
+
+            <p>
+                My goal is to build scalable applications,
+                improve business processes and grow as a
+                software professional.
+            </p>
+
+        </div>
+
+        <!-- Projects Card -->
+
+        <div class="about-card">
+
+            <span class="card-label">
+                PROJECTS
+            </span>
+
+            <h3>6+</h3>
+
+            <p>
+                Real-world & Academic Projects
+            </p>
+
+        </div>
+
+        <!-- Certification Card -->
+
+        <div class="about-card">
+
+            <span class="card-label">
+                CERTIFICATIONS
+            </span>
+
+            <h3>5+</h3>
+
+            <p>
+                Industry Recognized Certificates
+            </p>
+
+        </div>
+
+        <!-- Experience Card -->
+
+        <div class="about-card">
+
+            <span class="card-label">
+                EXPERIENCE
+            </span>
+
+            <h3>1+</h3>
+
+            <p>
+                Internship + Current Role
+            </p>
+
+        </div>
+
+        <!-- Skills Card -->
+
+        <div class="about-card">
+
+            <span class="card-label">
+                SKILLS
+            </span>
+
+            <h3>10+</h3>
+
+            <p>
+                Technical & Professional Skills
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= QUICK INFO ================= -->
+
+<section class="quick-info">
+
+    <div class="info-card">
+
+        <h4>Education</h4>
+
+        <p>
+            MCA - Kamla Nehru Mahavidyalaya, Nagpur University
+        </p>
+
+    </div>
+
+    <div class="info-card">
+
+        <h4>Location</h4>
+
+        <p>
+            Maharashtra, India
+        </p>
+
+    </div>
+
+    
+
+    <div class="info-card">
+
+        <h4>Phone</h4>
+
+        <p>
+            8928423222
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= SKILLS ================= -->
+
+<section id="skills" class="skills-section">
+
+    <div class="section-title">
+        <span>MY SKILLS</span>
+        <h2>Technologies I Work With</h2>
+    </div>
+
+    <!-- Languages -->
+
+    <div class="skill-category">
+
+        <h3>Languages</h3>
+
+        <div class="skills-grid">
+
+            <div class="skill-box">
+                <i class="fa-brands fa-html5"></i>
+                <span>HTML</span>
+            </div>
+
+            <div class="skill-box">
+                <i class="fa-brands fa-css3-alt"></i>
+                <span>CSS</span>
+            </div>
+
+            <div class="skill-box">
+                <i class="fa-brands fa-js"></i>
+                <span>JavaScript</span>
+            </div>
+
+            <div class="skill-box">
+                <i class="fa-brands fa-php"></i>
+                <span>PHP</span>
+            </div>
+
+          
+
+        </div>
+
+    </div>
+
+    <!-- Frontend -->
+
+    <div class="skill-category">
+
+        <h3>Frontend</h3>
+
+        <div class="skills-grid">
+
+            
+
+            <div class="skill-box">
+                <i class="fa-brands fa-bootstrap"></i>
+                <span>Bootstrap</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Database -->
+
+    <div class="skill-category">
+
+        <h3>Database</h3>
+
+        <div class="skills-grid">
+
+            <div class="skill-box">
+                <i class="fa-solid fa-database"></i>
+                <span>MySQL</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Tools -->
+
+    <div class="skill-category">
+
+        <h3>Tools & Software</h3>
+
+        <div class="skills-grid">
+
+            <div class="skill-box">
+                <i class="fa-brands fa-git-alt"></i>
+                <span>Git</span>
+            </div>
+
+            <div class="skill-box">
+                <i class="fa-brands fa-github"></i>
+                <span>GitHub</span>
+            </div>
+
+            <div class="skill-box">
+                <i class="fa-solid fa-code"></i>
+                <span>VS Code</span>
+            </div>
+
+            <div class="skill-box">
+                <i class="fa-solid fa-file-excel"></i>
+                <span>Excel</span>
+            </div>
+
+            <div class="skill-box">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>ERP</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects" class="projects-section">
+
+    <div class="section-title">
+        <span>MY WORK</span>
+        <h2>Featured Projects</h2>
+    </div>
+
+    <div class="projects-grid">
+
+        <!-- Project 1 -->
+
+        <div class="project-card featured">
+
+            <div class="project-tag">
+                Featured Project
+            </div>
+
+            <h3>Employee Attendance & Salary Management System</h3>
+
+            <p>
+                A complete employee management solution that tracks
+                attendance, manages employee records, calculates salaries,
+                and generates reports efficiently.
+            </p>
+
+            <div class="tech-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>PHP</span>
+                <span>MySQL</span>
+            </div>
+
+            <div class="project-buttons">
+
+                <a href="#" class="project-btn">
+                    Live Demo
+                </a>
+
+                <a href="#" class="project-btn">
+                    GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Project 2 -->
+
+        <div class="project-card featured">
+
+            <div class="project-tag">
+                Featured Project
+            </div>
+
+            <h3>Expense Tracker</h3>
+
+            <p>
+                Smart expense management system that helps users track
+                spending, categorize expenses, and monitor financial
+                records through an easy-to-use dashboard.
+            </p>
+
+            <div class="tech-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>PHP</span>
+                <span>MySQL</span>
+            </div>
+
+            <div class="project-buttons">
+
+                <a href="#" class="project-btn">
+                    Live Demo
+                </a>
+
+                <a href="#" class="project-btn">
+                    GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Project 3 -->
+
+        <div class="project-card">
+
+            <h3>Weather App</h3>
+
+            <p>
+                Real-time weather application using API integration
+                to display current weather information.
+            </p>
+
+            <div class="tech-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>API</span>
+            </div>
+
+        </div>
+
+        <!-- Project 4 -->
+
+        <div class="project-card">
+
+            <h3>To Do App</h3>
+
+            <p>
+                Task management application for organizing and
+                tracking daily activities efficiently.
+            </p>
+
+            <div class="tech-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+            </div>
+
+        </div>
+
+        <!-- Project 5 -->
+
+        <div class="project-card">
+
+            <h3>Fire Equipment Website</h3>
+
+            <p>
+                Responsive company website designed for showcasing
+                products and services professionally.
+            </p>
+
+            <div class="tech-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+            </div>
+
+        </div>
+
+        <!-- Project 6 -->
+
+        <div class="project-card">
+
+            <h3>Portfolio Website</h3>
+
+            <p>
+                Personal portfolio website designed to showcase
+                skills, projects, certifications and experience.
+            </p>
+
+            <div class="tech-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= CERTIFICATIONS ================= -->
+
+<section id="certifications" class="certifications-section">
+
+    <div class="section-title">
+        <span>ACHIEVEMENTS</span>
+        <h2>Certifications</h2>
+    </div>
+
+    <div class="cert-grid">
+
+        <div class="cert-card">
+            <i class="fa-solid fa-award"></i>
+            <h3>TCS iON Career Edge</h3>
+            <p>Young Professional Program</p>
+        </div>
+
+        <div class="cert-card">
+            <i class="fa-brands fa-python"></i>
+            <h3>Programming in Python</h3>
+            <p>Infosys Springboard</p>
+        </div>
+
+        <div class="cert-card">
+            <i class="fa-solid fa-laptop-code"></i>
+            <h3>Accenture</h3>
+            <p>Software Engineering Virtual Internship</p>
+        </div>
+
+        <div class="cert-card">
+            <i class="fa-solid fa-brain"></i>
+            <h3>Tata GenAI</h3>
+            <p>Forage Virtual Experience</p>
+        </div>
+
+        <div class="cert-card">
+            <i class="fa-solid fa-chart-column"></i>
+            <h3>Deloitte</h3>
+            <p>Data Analytics Virtual Internship</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= EDUCATION ================= -->
+
+<section id="education" class="education-section">
+
+    <div class="section-title">
+        <span>ACADEMICS</span>
+        <h2>Education Timeline</h2>
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>MCA</h3>
+                <h4>Kamla Nehru Mahavidyalaya, Nagpur</h4>
+                <p>2025 • CGPA: 7.60</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>B.Sc. Computer Science</h3>
+                <h4>Shankarlal Khandelwal College, Akola</h4>
+                <p>2023 • 76%</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Higher Secondary (12th)</h3>
+                <p>2021 • 65%</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Secondary (10th)</h3>
+                <p>2018 • 85%</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+
+<section id="experience" class="experience-section">
+
+    <div class="section-title">
+        <span>CAREER</span>
+        <h2>Experience Timeline</h2>
+    </div>
+
+    <div class="timeline">
+
+        <!-- Current Job -->
+
+        <div class="timeline-item current-job">
+
+            <div class="timeline-content">
+
+                <span class="job-badge">
+                    CURRENT
+                </span>
+
+                <h3>Executive</h3>
+
+                <h4>
+                    Yulong Gattuwala Energy Solutions Pvt. Ltd.
+                </h4>
+
+                <p>
+                    May 2026 - Present
+                </p>
+
+                <ul>
+                    <li>ERP Data Entry</li>
+                    <li>Excel Reporting</li>
+                    <li>Purchase & Sales Entries</li>
+                    <li>Documentation Management</li>
+                    <li>Customer Support</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- Internship -->
+
+        <div class="timeline-item">
+
+            <div class="timeline-content">
+
+                <h3>Web Developer Intern</h3>
+
+                <h4>
+                    Edgemine Technologies (Tech Solve)
+                </h4>
+
+                <p>
+                    Nov 2024 – May 2025
+                </p>
+
+                <ul>
+                    <li>HTML, CSS, JavaScript Development</li>
+                    <li>PHP & MySQL Projects</li>
+                    <li>Responsive Web Design</li>
+                    <li>Bug Fixing & Testing</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= ACHIEVEMENTS ================= -->
+
+<section id="achievements" class="achievements-section">
+
+    <div class="section-title">
+        <span>HIGHLIGHTS</span>
+        <h2>Achievements</h2>
+    </div>
+
+    <div class="achievement-grid">
+
+        <div class="achievement-card">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <h3>MCA Graduate</h3>
+            <p>Successfully completed MCA in 2025.</p>
+        </div>
+
+        <div class="achievement-card">
+            <i class="fa-solid fa-certificate"></i>
+            <h3>5+ Certifications</h3>
+            <p>Industry-recognized certifications completed.</p>
+        </div>
+
+        <div class="achievement-card">
+            <i class="fa-solid fa-briefcase"></i>
+            <h3>Professional Experience</h3>
+            <p>Internship + Current Executive Role.</p>
+        </div>
+
+        <div class="achievement-card">
+            <i class="fa-solid fa-code"></i>
+            <h3>Multiple Projects</h3>
+            <p>Developed academic and real-world projects.</p>
+        </div>
+<div class="achievement-card">
+    <i class="fa-solid fa-trophy"></i>
+    <h3>Shiksha Protsahan Puraskar</h3>
+    <p>
+        Awarded by Rajasthani Arora Khatri Sarvochh Samiti,
+        Jodhpur (Rajasthan) for academic excellence.
+    </p>
+</div>
+
+<div class="achievement-card">
+    <i class="fa-solid fa-medal"></i>
+    <h3>Pratibha Samman Puraskar</h3>
+    <p>
+        Honored by Rajasthani Arora Khatri Sarvochh Samiti,
+        Jodhpur (Rajasthan) in recognition of educational achievement.
+    </p>
+</div>
+    </div>
+
+</section>
+
+<!-- ================= CODING PROFILES ================= -->
+
+<section id="profiles" class="profiles-section">
+
+    <div class="section-title">
+        <span>CONNECT</span>
+        <h2>Professional Profiles</h2>
+    </div>
+
+    <div class="profile-buttons">
+
+        <a href="https://github.com/bhoomiee-coder"
+           target="_blank"
+           class="profile-btn">
+            <i class="fa-brands fa-github"></i>
+            GitHub
+        </a>
+
+        <a href="https://www.linkedin.com/in/bhoomika-khatri-62180932a/"
+           target="_blank"
+           class="profile-btn">
+            <i class="fa-brands fa-linkedin"></i>
+            LinkedIn
+        </a>
+
+
+</section>
+
+<!-- ================= RESUME CTA ================= -->
+
+<section class="resume-section">
+
+    <div class="resume-box">
+
+        <h2>Interested In My Profile?</h2>
+
+        <p>
+            Download my latest resume to know more
+            about my skills, projects and experience.
+        </p>
+
+        <a href="resume/BHOOMIKA ASHISH KHATRI_Resume.pdf"
+           download
+           class="resume-btn">
+            Download Resume
+        </a>
+
+    </div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="contact-section">
+
+    <div class="section-title">
+        <span>GET IN TOUCH</span>
+        <h2>Contact Me</h2>
+    </div>
+
+    <div class="contact-container">
+
+        <div class="contact-card">
+
+            <i class="fa-solid fa-envelope"></i>
+
+            <h3>Email</h3>
+
+            <p>
+                miss.bhoomiee.2207@gmail.com
+            </p>
+
+        </div>
+
+        <div class="contact-card">
+
+            <i class="fa-solid fa-phone"></i>
+
+            <h3>Phone</h3>
+
+            <p>
+                8928423222
+            </p>
+
+        </div>
+
+        <div class="contact-card">
+
+            <i class="fa-brands fa-linkedin"></i>
+
+            <h3>LinkedIn</h3>
+
+            <p>
+                Connect Professionally
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <h2>Bhoomika Khatri</h2>
+
+        <p>
+            MCA Graduate | Web Developer | Executive
+        </p>
+
+        <div class="footer-socials">
+
+            <a href="https://github.com/bhoomiee-coder">
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/bhoomika-khatri-62180932a/">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+
+            <a href="mailto:miss.bhoomiee.2207@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 Bhoomika Khatri. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+<!-- Scroll To Top -->
+
+<button id="topBtn">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+<script>
+ 
+
+
+    // ===============================
+// LOADER
+// ===============================
+
+window.addEventListener("load", () => {
+
+    const loader = document.getElementById("loader");
+
+    if(loader){
+
+        loader.style.opacity = "0";
+
+        setTimeout(() => {
+
+            loader.style.display = "none";
+
+        }, 500);
+
+    }
+
+});
+
+// ===============================
+// SCROLL REVEAL
+// ===============================
+
+const revealElements = document.querySelectorAll(
+    "section, .project-card, .skill-card, .edu-container, .card"
+);
+
+function revealOnScroll(){
+
+    revealElements.forEach((element) => {
+
+        const windowHeight = window.innerHeight;
+
+        const elementTop =
+        element.getBoundingClientRect().top;
+
+        if(elementTop < windowHeight - 100){
+
+            element.style.opacity = "1";
+            element.style.transform = "translateY(0)";
+
+        }
+
+    });
+
+}
+
+revealElements.forEach((element)=>{
+
+    element.style.opacity = "0";
+    element.style.transform = "translateY(50px)";
+    element.style.transition = "all 0.8s ease";
+
+});
+
+window.addEventListener(
+    "scroll",
+    revealOnScroll
+);
+
+revealOnScroll();
+// ===============================
+// SMOOTH SCROLL
+// ===============================
+
+document.querySelectorAll(
+'a[href^="#"]'
+).forEach(anchor => {
+
+    anchor.addEventListener(
+        "click",
+        function(e){
+
+            e.preventDefault();
+
+            const target =
+            document.querySelector(
+                this.getAttribute("href")
+            );
+
+            if(target){
+
+                target.scrollIntoView({
+
+                    behavior:"smooth"
+
+                });
+
+            }
+
+        }
+    );
+
+});
+
+// ===============================
+// TYPING EFFECT
+// ===============================
+
+const typingElement =
+document.getElementById("typing");
+
+const texts = [
+
+    "MCA Graduate",
+    "Web Developer",
+    "Executive @ Gattuwala Energy Solutions",
+    "ERP & Excel Reporting",
+    "Actively Seeking Opportunities"
+
+];
+
+let textIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeEffect(){
+
+    if(!typingElement) return;
+
+    const currentText =
+    texts[textIndex];
+
+    if(!deleting){
+
+        typingElement.textContent =
+        currentText.substring(
+            0,
+            charIndex + 1
+        );
+
+        charIndex++;
+
+        if(
+            charIndex ===
+            currentText.length
+        ){
+
+            deleting = true;
+
+            setTimeout(
+                typeEffect,
+                1500
+            );
+
+            return;
+
+        }
+
+    }else{
+
+        typingElement.textContent =
+        currentText.substring(
+            0,
+            charIndex - 1
+        );
+
+        charIndex--;
+
+        if(charIndex === 0){
+
+            deleting = false;
+
+            textIndex++;
+
+            if(
+                textIndex ===
+                texts.length
+            ){
+
+                textIndex = 0;
+
+            }
+
+        }
+
+    }
+
+    setTimeout(
+        typeEffect,
+        deleting ? 50 : 100
+    );
+
+}
+
+typeEffect();
+
+// ===============================
+// NAVBAR EFFECT
+// ===============================
+
+const navbar =
+document.querySelector(".navbar");
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if(!navbar) return;
+
+        if(window.scrollY > 50){
+
+            navbar.style.background =
+            "rgba(5,8,22,0.95)";
+
+            navbar.style.backdropFilter =
+            "blur(20px)";
+
+        }else{
+
+            navbar.style.background =
+            "rgba(255,255,255,0.05)";
+
+        }
+
+    }
+);
+
+// ===============================
+// AUTO YEAR
+// ===============================
+
+const year =
+document.getElementById("year");
+
+if(year){
+
+    year.textContent =
+    new Date().getFullYear();
+
+}
+</script>
+</body>
+
+</html>
